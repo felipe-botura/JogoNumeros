@@ -1,0 +1,13 @@
+git config --global user.name giovana-cruzado
+git config --global user.email giovanarusbe@gmail.com
+
+git config --global user.name felipe-botura
+git config --global user.email felipebotura7@gmail.com
+
+npx create-expo-app@latest JogosNumeros --template blank
+
+cd JogosNumeros
+
+npm run reset-project
+
+npx expo start --localhost --android
