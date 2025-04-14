@@ -54,10 +54,14 @@ export default function JogoDeChute() {
                 keyboardType="number-pad"
                 placeholder={focado ? '' : 'Digite seu chute'}
                 value={chute}
-                onChangeText={setChute}
+                onChangeText={(text) => {
+                    const somenteInteiro = text.replace(/[^0-9]/g, '');
+                    setChute(somenteInteiro);
+                }}
                 onFocus={() => setFocado(true)}
                 onBlur={() => setFocado(false)}
                 editable={!jogoFinalizado}
+                inputMode="numeric"
             />
 
             <Button title="Verificar" onPress={verificarChute} disabled={jogoFinalizado} />
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#f0f8ff',
         height: '100%',
-        
+
     },
     title: {
         fontSize: 28,
@@ -103,6 +107,7 @@ const styles = StyleSheet.create({
         color: '#555',
     },
     mensagem: {
+        marginBottom: 10,
         marginTop: 25,
         fontSize: 20,
         fontWeight: 'bold',
